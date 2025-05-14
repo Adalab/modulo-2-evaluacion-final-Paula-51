@@ -16,7 +16,7 @@
   body {
     font-family: "Onest", sans-serif;
     font-optical-sizing: auto;
-    background-color: --(color-bg);
+    background-color: #FBF3B9;
     padding: 20px;
   }
   
@@ -47,7 +47,7 @@
   .buscador button {
     padding: 10px 20px;
     border: none;
-    background-color: #2c7;
+    background-color: #DC8BE0;
     color: white;
     border-radius: 5px;
     cursor: pointer;
@@ -93,10 +93,17 @@
     margin-bottom: 10px;
   }
   
+  .buy{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:25px;}
+
   .btn-comprar {
     padding: 10px 15px;
-    background-color: #28a;
-    color: white;
+    background-color: rgb(135, 204, 181);
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -104,7 +111,7 @@
   
   .carrito {
     flex: 1;
-    background-color: white;
+    background-color: #FDB7EA;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -162,3 +169,12 @@
     }
   }
   
+  // Clases de la API
+
+  .imagen {
+    width: 80%;
+    height: auto;
+    max-height: 200px;
+    object-fit: contain;
+    margin-top: -0.5em;
+}
