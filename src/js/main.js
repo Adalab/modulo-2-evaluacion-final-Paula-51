@@ -1,4 +1,3 @@
-
 'use strict';
 //Constantes y variables
 const layout= document.querySelector('.js-tarjetas');
@@ -55,36 +54,25 @@ function arrayElements(tarjetas, canvas) {
   
 //Función que pinta el carrito 
 function paintCart() {
-    cart.innerHTML = '';
-    if (shoppingBag.length === 0) {
-      cart.innerHTML = '<p>No tienes productos en el carrito</p>';
-    } else {
-      shoppingBag.forEach((item, index) => {
-        const cartItem = document.createElement('div');
-        cartItem.classList.add('cart-item');
-  
-        const img = document.createElement('img');
-        img.src = item.image;
-        img.alt = item.title;
-  
-        const name = document.createElement('span');
-        name.textContent = item.title;
-        name.classList.add('item-name');
-  
-        const price = document.createElement('span');
-        price.textContent = `${item.price}€`;
-        price.classList.add('item-price');
-  
-        const deleteBtn = document.createElement('button');
-        deleteBtn.textContent = 'Eliminar';
-        deleteBtn.classList.add('btn-delete');
-        deleteBtn.setAttribute('data-index', index);
-  
-        cartItem.append(img, name, price, deleteBtn);
-        cart.appendChild(cartItem);
-      });
-    }
+  const cartContainer = document.querySelector('.js-carrito');
+  cartContainer.innerHTML = ''; // Limpia el contenido del carrito
+
+  if (shoppingBag.length === 0) {
+    cartContainer.innerHTML = '<p>El carrito está vacío 🛒</p>';
+  } else {
+    shoppingBag.forEach((item, index) => {
+      const cartItem = document.createElement('div');
+      cartItem.classList.add('cart-item');
+      cartItem.innerHTML = `
+        <img src="${item.image}" alt="${item.title}" class="cart-item-image" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
+        <p>${item.title}</p>
+        <p>€${item.price}</p>
+        <button class="btn-delete" data-index="${index}" style="font-size: 18px; font-weight: bold; background: none; border: none; cursor: pointer;">✖</button>
+      `;
+      cartContainer.appendChild(cartItem);
+    });
   }
+}
   
   
   //Función para añadir al carrito
@@ -181,10 +169,11 @@ cart.addEventListener('click', (event) => {
   });
 
   //Evento para vaciar el carrito
-  document.querySelector('#btn-limpiar').addEventListener('click', () => {
-    shoppingBag = [];
-    localStorage.removeItem('shoppingBag');
-    paintCart();
-    arrayElements(products, layout);
-  });
-  
+
+document.querySelector('.btn-vaciar-carrito').addEventListener('click', () => {
+  shoppingBag = []; // Vacía el carrito
+  localStorage.removeItem('shoppingBag'); // Elimina el carrito del almacenamiento local
+  paintCart(); // Vuelve a pintar el carrito vacío
+  arrayElements(products, layout); // Actualiza la vista de productos
+});
+
