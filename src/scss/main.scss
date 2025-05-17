@@ -141,6 +141,24 @@
     color:rgb(248, 91, 143)
     positi
   }
+
+  .btn-vaciar-carrito {
+    background-color: #ff5c5c;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin-top: 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-vaciar-carrito:hover {
+    background-color: #cc0000;
+  }
+  
   /*Dentro del carrito*/
   .cart-sidebar {
     position: fixed;

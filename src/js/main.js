@@ -6,6 +6,8 @@ const url = 'https://raw.githubusercontent.com/Adalab/resources/master/apis/prod
 const inputFind = document.querySelector('.js-find-input');
 const btnFind = document.querySelector('.js-find-btn');
 const cart = document.querySelector('.js-carrito');
+const btnVaciar = document.querySelector('#btn-limpiar');
+
 
 //Arrays
 let products =[];
@@ -177,3 +179,12 @@ cart.addEventListener('click', (event) => {
       arrayElements(products, layout); // Actualizar botones en canvas
     }
   });
+
+  //Evento para vaciar el carrito
+  document.querySelector('#btn-limpiar').addEventListener('click', () => {
+    shoppingBag = [];
+    localStorage.removeItem('shoppingBag');
+    paintCart();
+    arrayElements(products, layout);
+  });
+  
