@@ -120,17 +120,24 @@ function handleClick(event) {
 }
 
 //Fetch API
-    fetch (url)
-    .then((response) => {
-        return response.json();
-    })
+fetch(url)
+    .then((response) => response.json())
     .then((data) => {
-        products = data;
-        arrayElements(products,layout);
+    products = data;
+
+    // Recuperar carrito guardado, si existe
+    const savedCart = localStorage.getItem('shoppingBag');
+    if (savedCart) {
+        shoppingBag = JSON.parse(savedCart);
+    }
+
+    arrayElements(products, layout);
+    paintCart(); // <- Muy importante para pintar el carrito al inicio
     })
     .catch((error) => {
-        console.error('Error fetching data:', error);
+    console.error('Error fetching data:', error);
     });
+
 
 //Evento buscador
 btnFind.addEventListener('click', handleClick);
@@ -149,6 +156,8 @@ layout.addEventListener("click", (event) => {
         // Agregar al carrito
         shoppingBag.push(product);
       }
+      // Guardar cambios en localStorage
+    localStorage.setItem('shoppingBag', JSON.stringify(shoppingBag));
   
       paintCart();
       arrayElements(products, layout); // Vuelve a pintar el canvas para actualizar botones
@@ -160,6 +169,10 @@ cart.addEventListener('click', (event) => {
     if (event.target.classList.contains('btn-delete')) {
       const index = event.target.getAttribute('data-index');
       shoppingBag.splice(index, 1);
+
+      // Actualiza el localStorage
+    localStorage.setItem('shoppingBag', JSON.stringify(shoppingBag));
+
       paintCart();
       arrayElements(products, layout); // Actualizar botones en canvas
     }
