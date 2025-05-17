@@ -104,14 +104,33 @@
     justify-content: center;
     gap:25px;}
 
-  .btn-comprar {
-    padding: 10px 15px;
-    background-color: rgb(135, 204, 181);
-    color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+    .btn-comprar {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      cursor: pointer;
+    
+      &.btn-en-carrito {
+        background-color: #c0392b; // rojo
+      }
+    }
+    
+    
+    /*Boton borrar*/
+    .btn-delete {
+      background: transparent;
+      border: none;
+      font-size: 16px;
+      margin-left: 10px;
+      cursor: pointer;
+      color: #c00;
+    
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+    
   
   .carrito {
     flex: 1;
@@ -122,7 +141,51 @@
     color:rgb(248, 91, 143)
     positi
   }
+  /*Dentro del carrito*/
+  .cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background: #f9f9f9;
+    border-left: 1px solid #ccc;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1000;
+  }
   
+  .cart-sidebar h2 {
+    margin-top: 0;
+  }
+  
+  .cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .item-name {
+    flex: 1;
+    font-size: 16px;
+  }
+  
+  .item-price {
+    font-weight: bold;
+    color: #333;
+  }
+  
+
   .carrito h2 {
     margin-bottom: 10px;
   }
@@ -130,6 +193,38 @@
   .lista-carrito {
     list-style: none;
   }
+
+  /*Añadidos al carrito*/
+  .carrito {
+    .cart-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      background-color: white;
+      padding-inline: 5%;
+      border-radius: 7px;
+      margin-block: 8px;
+
+  
+      img {
+        width: 30px;
+        height: auto;
+        object-fit: cover;
+        margin-right: 10px;
+      }
+  
+      .item-name {
+        flex-grow: 1;
+        font-size: 14px;
+      }
+  
+      .item-price {
+        font-weight: bold;
+      }
+    }
+  }
+  
   
   /* Para tablet: 2 productos por fila */
 @media (max-width: 768px) {
