@@ -23,6 +23,10 @@
   header {
     text-align: center;
     margin-bottom: 40px;
+    background-color: rgb(139, 219, 196);
+    padding-block: 40px;
+    margin-top: -20px;
+    margin-inline: -20px;
   }
   
   .titulo {
@@ -111,17 +115,19 @@
   
   .carrito {
     flex: 1;
-    background-color: #FDB7EA;
+    background-color: #fee9f9;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color:rgb(248, 91, 143)
+    positi
   }
   
   .carrito h2 {
     margin-bottom: 10px;
   }
   
-  #lista-carrito {
+  .lista-carrito {
     list-style: none;
   }
   
@@ -176,5 +182,5 @@
     height: auto;
     max-height: 200px;
     object-fit: contain;
-    margin-top: -0.5em;
+    margin-top: 0.5em;
 }
