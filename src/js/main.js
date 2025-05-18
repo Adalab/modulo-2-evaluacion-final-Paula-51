@@ -44,7 +44,7 @@ function arrayElements(tarjetas, canvas) {
         btnComprar.classList.add('btn-en-carrito'); // nuevo estilo botón eliminar
       }
   
-      btnComprar.setAttribute('data-title', tarjeta.title); // importante para manejar eventos
+      btnComprar.setAttribute('data-id', tarjeta.id); // importante para manejar eventos
   
       div2.append(precio, btnComprar);
       div1.append(img, h3, div2);
@@ -136,13 +136,13 @@ btnFind.addEventListener('click', handleClick);
 //Evento añadir al carrito
 layout.addEventListener("click", (event) => {
     if (event.target.classList.contains("btn-comprar")) {
-      const title = event.target.getAttribute('data-title');
-      const product = products.find((p) => p.title === title);
-      const inCart = shoppingBag.some((item) => item.title === title);
+      const productID = parseInt(event.target.getAttribute('data-id'));
+      const product = products.find((p) => p.id === productID);
+      const inCart = shoppingBag.some((item) => item.id === productID);
   
       if (inCart) {
         // Eliminar del carrito
-        shoppingBag = shoppingBag.filter((item) => item.title !== title);
+        shoppingBag = shoppingBag.filter((item) => item.id !== productID);
       } else {
         // Agregar al carrito
         shoppingBag.push(product);
