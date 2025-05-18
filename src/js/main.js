@@ -30,6 +30,17 @@ function arrayElements(tarjetas, canvas) {
   
       const div2 = document.createElement('div');
       div2.classList.add('buy');
+
+      const quantity = document.createElement('p');
+      quantity.textContent = 'Cantidad: ';
+      const quantityInput = document.createElement('input');
+      quantityInput.type = 'number';
+      quantityInput.value = 1;
+      quantityInput.min = 1;
+      quantityInput.classList.add('js-quantity-input');
+      quantityInput.setAttribute('data-id', tarjeta.id);
+      quantity.appendChild(quantityInput);
+      div2.appendChild(quantity);
   
       const precio = document.createElement('p');
       precio.textContent = tarjeta.price + ' €';
@@ -69,11 +80,18 @@ function paintCart() {
         <img src="${item.image}" alt="${item.title}" class="cart-item-image" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
         <p>${item.title}</p></div>
         <div class="cart-item-quantity">
-        <p class="item-price">${item.price} €</p>
+        <input type="number" value="${item.quantity}" id="${item.id}" min="1" class="js-cart-quantity cart-quantity"></input>
+        <p class="item-price">${item.price * item.quantity} €</p>
         <button class="btn-delete" id="${i}" style="font-size: 18px; font-weight: bold; background: none; border: none; cursor: pointer;">✖</button></div>
       `;
       cartContainer.appendChild(cartItem);
     });
+
+    const totalValue = document.createElement('p');
+    totalValue.classList.add('js-total-value', 'total-value');
+    const total = shoppingBag.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    totalValue.textContent = `Total: ${total} €`;
+    cartContainer.appendChild(totalValue);
   }
 }
 
@@ -123,6 +141,8 @@ layout.addEventListener("click", (event) => {
         shoppingBag = shoppingBag.filter((item) => item.id !== productID);
       } else {
         // Agregar al carrito
+        // Cantidad inicial al añadir un producto
+        product.quantity = event.target.parentElement.querySelector('.js-quantity-input').value;
         shoppingBag.push(product);
       }
       // Guardar cambios en localStorage
@@ -135,17 +155,35 @@ layout.addEventListener("click", (event) => {
   
 //Evento eliminar del carrito
 cart.addEventListener('click', (event) => {
-    if (event.target.classList.contains('btn-delete')) {
-      const i = event.target.getAttribute('id');
-      shoppingBag.splice(i, 1);
+  if (event.target.classList.contains('btn-delete')) {
+    const i = event.target.getAttribute('id');
+    shoppingBag.splice(i, 1);
 
-      // Actualiza el localStorage
+    // Actualiza el localStorage
+  localStorage.setItem('shoppingBag', JSON.stringify(shoppingBag));
+
+    paintCart();
+    arrayElements(products, layout); // Actualizar botones en canvas
+  }
+});
+
+//Evento para cambiar la cantidad de productos en el carrito
+cart.addEventListener('change', (event) => {
+  if (event.target.classList.contains('cart-quantity')) {
+    const productID = parseInt(event.target.getAttribute('id'));
+    //Cambiar la cantidad del producto en el carrito
+    const newQuantity = parseInt(event.target.value);
+    const product = shoppingBag.find((item) => item.id === productID);
+    if (product) {
+      product.quantity = newQuantity;
+    }
+    // Actualiza el localStorage
     localStorage.setItem('shoppingBag', JSON.stringify(shoppingBag));
 
-      paintCart();
-      arrayElements(products, layout); // Actualizar botones en canvas
-    }
-  });
+    paintCart();
+    arrayElements(products, layout); // Actualizar botones en canvas
+  }
+});
 
   //Evento para vaciar el carrito
 

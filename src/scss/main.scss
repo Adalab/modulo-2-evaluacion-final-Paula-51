@@ -155,8 +155,8 @@
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    color:rgb(248, 91, 143)
-    positi
+    color:rgb(248, 91, 143);
+  
   }
   /*Dentro del carrito*/
   .cart-sidebar {
@@ -248,39 +248,6 @@
         font-weight: bold;
         white-space: nowrap;
       }
-    }
-  }
-  
-  //copilot solution
-  .contador {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
-  
-    .btn-restar,
-    .btn-sumar {
-      background-color: #ffd1dc; /* Rosa pastel */
-      border: none;
-      padding: 5px 10px;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 16px;
-      font-weight: bold;
-      color: #fff;
-      transition: background-color 0.3s;
-    }
-  
-    .btn-restar:hover,
-    .btn-sumar:hover {
-      background-color: #ff69b4; /* Rosa más fuerte */
-    }
-  
-    .cantidad {
-      font-size: 16px;
-      font-weight: bold;
-      color: #333;
     }
   }
   
