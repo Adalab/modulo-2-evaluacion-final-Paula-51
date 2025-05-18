@@ -213,19 +213,27 @@
 
   /*Añadidos al carrito*/
   .carrito {
+   
     .cart-item {
+      display:flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #ddd;
+      background-color: white;
+      padding-inline: 3%;
+      border-radius: 7px;
+      margin-block: 8px;
+    }
+
+    .cart-item-details, .cart-item-quantity {
       display: flex;
       align-items: center;
       padding: 10px 0;
-      border-bottom: 1px solid #ddd;
-      background-color: white;
-      padding-inline: 5%;
-      border-radius: 7px;
-      margin-block: 8px;
+
+     
 
   
       img {
-        width: 30px;
+        width: 25%;
         height: auto;
         object-fit: cover;
         margin-right: 10px;
@@ -238,6 +246,7 @@
   
       .item-price {
         font-weight: bold;
+        white-space: nowrap;
       }
     }
   }
@@ -306,6 +315,11 @@
   
   /* Para móvil: 1 producto por fila */
   @media (max-width: 450px) {
+    header {
+      padding-inline: 5%;
+      padding-block: 5%;
+    }
+
     .tarjetas {
       grid-template-columns: 1fr;
     }
@@ -317,7 +331,13 @@
     .buscador button {
       width: 100%;
     }
+    .contenido {
+      flex-direction: column-reverse;
+    }
+  
   }
+
+
   
   // Clases de la API
 

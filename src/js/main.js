@@ -65,39 +65,17 @@ function paintCart() {
       const cartItem = document.createElement('div');
       cartItem.classList.add('cart-item');
       cartItem.innerHTML = `
+        <div class="cart-item-details">
         <img src="${item.image}" alt="${item.title}" class="cart-item-image" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
-        <p>${item.title}</p>
-        <p>€${item.price}</p>
-        <button class="btn-delete" id="${i}" style="font-size: 18px; font-weight: bold; background: none; border: none; cursor: pointer;">✖</button>
+        <p>${item.title}</p></div>
+        <div class="cart-item-quantity">
+        <p class="item-price">${item.price} €</p>
+        <button class="btn-delete" id="${i}" style="font-size: 18px; font-weight: bold; background: none; border: none; cursor: pointer;">✖</button></div>
       `;
       cartContainer.appendChild(cartItem);
     });
   }
 }
-  
-  
-  //Función para añadir al carrito
-  function addToBag(event) {
-    const productDiv = event.target.closest('.producto');
-    const title = productDiv.querySelector('h3').textContent;
-    const price = parseFloat(productDiv.querySelector('p').textContent);
-    const image = productDiv.querySelector('img').src;
-  
-    const exists = shoppingBag.some((item) => item.title === title);
-  
-    if (!exists) {
-      const product = {
-        title,
-        price,
-        image
-      };
-      shoppingBag.push(product);
-      paintCart();
-    } else {
-      alert('Este producto ya está en el carrito.');
-    }
-  }
-  
 
 //Función manejadora del buscador
 function handleClick(event) {
