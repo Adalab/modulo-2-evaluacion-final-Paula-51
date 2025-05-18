@@ -5,7 +5,7 @@ const url = 'https://raw.githubusercontent.com/Adalab/resources/master/apis/prod
 const inputFind = document.querySelector('.js-find-input');
 const btnFind = document.querySelector('.js-find-btn');
 const cart = document.querySelector('.js-carrito');
-const btnVaciar = document.querySelector('#btn-limpiar');
+
 
 
 //Arrays
@@ -32,15 +32,16 @@ function arrayElements(tarjetas, canvas) {
       div2.classList.add('buy');
   
       const precio = document.createElement('p');
-      precio.textContent = tarjeta.price + '€';
+      precio.textContent = tarjeta.price + ' €';
   
       const btnComprar = document.createElement('button');
+      // Se usa el some porque solo devuelve true o false y para, sin necesidad de seguir recorriendo el array
       const inCart = shoppingBag.some((item) => item.title === tarjeta.title);
   
       btnComprar.textContent = inCart ? 'Eliminar' : 'Comprar';
       btnComprar.classList.add('btn-comprar');
       if (inCart) {
-        btnComprar.classList.add('btn-en-carrito'); // nuevo estilo
+        btnComprar.classList.add('btn-en-carrito'); // nuevo estilo botón eliminar
       }
   
       btnComprar.setAttribute('data-title', tarjeta.title); // importante para manejar eventos
@@ -60,14 +61,14 @@ function paintCart() {
   if (shoppingBag.length === 0) {
     cartContainer.innerHTML = '<p>El carrito está vacío 🛒</p>';
   } else {
-    shoppingBag.forEach((item, index) => {
+    shoppingBag.forEach((item, i) => {
       const cartItem = document.createElement('div');
       cartItem.classList.add('cart-item');
       cartItem.innerHTML = `
         <img src="${item.image}" alt="${item.title}" class="cart-item-image" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
         <p>${item.title}</p>
         <p>€${item.price}</p>
-        <button class="btn-delete" data-index="${index}" style="font-size: 18px; font-weight: bold; background: none; border: none; cursor: pointer;">✖</button>
+        <button class="btn-delete" id="${i}" style="font-size: 18px; font-weight: bold; background: none; border: none; cursor: pointer;">✖</button>
       `;
       cartContainer.appendChild(cartItem);
     });
@@ -157,8 +158,8 @@ layout.addEventListener("click", (event) => {
 //Evento eliminar del carrito
 cart.addEventListener('click', (event) => {
     if (event.target.classList.contains('btn-delete')) {
-      const index = event.target.getAttribute('data-index');
-      shoppingBag.splice(index, 1);
+      const i = event.target.getAttribute('id');
+      shoppingBag.splice(i, 1);
 
       // Actualiza el localStorage
     localStorage.setItem('shoppingBag', JSON.stringify(shoppingBag));
