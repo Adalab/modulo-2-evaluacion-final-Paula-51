@@ -2,7 +2,7 @@ const r=document.querySelector(".js-tarjetas"),L="https://raw.githubusercontent.
         <div class="cart-item-details">
         <img src="${n.image}" alt="${n.title}" class="cart-item-image" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
         <p>${n.title}</p></div>
-        <div class="cart-item-quantity">
+        <div class="cart-item-quantity"> 
         <input type="number" value="${n.quantity}" id="${n.id}" min="1" class="js-cart-quantity cart-quantity"></input>
         <p class="item-price">${n.price*n.quantity} €</p>
         <button class="btn-delete" id="${i}" style="font-size: 18px; font-weight: bold; background: none; border: none; cursor: pointer;">✖</button></div>

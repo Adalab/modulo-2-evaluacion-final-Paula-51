@@ -7,6 +7,10 @@
 @use 'pages/index';*/
 
 /* Reset básico */
+
+/*sacar del div el boton comprar y meter la cantidad y el precio en un div y el botón abajo*/
+
+
 * {
     margin: 0;
     padding: 0;
@@ -16,47 +20,52 @@
   body {
     font-family: "Onest", sans-serif;
     font-optical-sizing: auto;
-    background-color: #FBF3B9;
+    background-color: #fdd7e5;
     padding: 20px;
   }
   
   header {
+    
     text-align: center;
     margin-bottom: 40px;
-    background-color: rgb(139, 219, 196);
-    padding-block: 40px;
-    margin-top: -20px;
-    margin-inline: -20px;
+    background-color: rgb(237, 95, 152);
+    padding-block: 90px;
+    border-radius: 50px;
+    
   }
   
   .titulo {
+    font-weight: bold;
+    font-family: 'Comic Sans MS', 'Segoe UI', cursive;
     font-size: 2.5rem;
     margin-bottom: 20px;
+    color:#faeff6;
   }
   
   .buscador {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     width: 100%;
+
   }
   
   .buscador input {
     padding: 10px;
     width: 550px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 25px;
   }
   
   .buscador button {
-    padding: 10px 20px;
+    padding: 10px 30px;
     border: none;
-    background-color: #DC8BE0;
+    background-color: #f596b6;
     color: white;
-    border-radius: 5px;
+    border-radius: 35px;
     cursor: pointer;
   }
-  
+
   .contenido {
     display: flex;
     justify-content: space-between;
@@ -85,13 +94,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
   }
   
-  .imagen-placeholder {
-    width: 100%;
-    height: 0;
-    padding-bottom: 66.66%; /* Proporción 600x400 */
-    background-color: #ddd;
-    margin-bottom: 10px;
-  }
+ 
   
   .producto h3 {
     margin-bottom: 10px;
@@ -132,12 +135,15 @@
   }
 }
 .btn-vaciar-carrito {
-  background-color: #ff5c5c;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+  background-color: #ff5c7d;
   color: white;
   border: none;
   padding: 10px 16px;
   margin-top: 20px;
-  border-radius: 6px;
+  border-radius: 60px;
   font-weight: bold;
   cursor: pointer;
   width: 100%;
@@ -145,7 +151,7 @@
 }
 
 .btn-vaciar-carrito:hover {
-  background-color: #cc0000;
+  background-color: #f01649;
 }
 
   
@@ -251,6 +257,78 @@
     }
   }
   
+  .cart-item-cuantity {
+    width: 300px;
+
+  }
+
+  /*estilos imput*/
+  .cart-quantity {
+    width: 60px;
+    padding: 6px;
+    border: 2px solid #F4C2C2; /* rosa palo */
+    border-radius: 8px;
+    background-color: #FFF1F4; /* fondo claro rosado */
+    color: #2E2E2E;
+    font-size: 1rem;
+    text-align: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cart-quantity:focus {
+    outline: none;
+    border-color: #FF6F61; /* coral */
+    box-shadow: 0 0 5px rgba(255, 111, 97, 0.3);
+  }
+
+  .js-quantity-input {
+    width: 60px;
+    padding: 6px;
+    border: 2px solid #F4C2C2; /* rosa palo */
+    border-radius: 8px;
+    background-color: #FFF1F4; /* fondo rosado claro */
+    color: #2E2E2E;
+    font-size: 1rem;
+    text-align: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .js-quantity-input:focus {
+    outline: none;
+    border-color: #FF6F61; /* coral vivo */
+    box-shadow: 0 0 5px rgba(255, 111, 97, 0.3);
+  }
+
+  .btn-comprar {
+    background-color: #FF6F61; /* coral vivo */
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  
+  .btn-comprar::after {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+  }
+  
+  .btn-comprar:hover {
+    background-color: #FF4D6D; /* rosa coral fuerte */
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+
   /* Para tablet: 2 productos por fila */
 @media (max-width: 768px) {
     .contenido {
@@ -283,8 +361,8 @@
   /* Para móvil: 1 producto por fila */
   @media (max-width: 450px) {
     header {
-      padding-inline: 5%;
-      padding-block: 5%;
+      padding-inline: 0%;
+      padding-block: 0%;
     }
 
     .tarjetas {

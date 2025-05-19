@@ -75,11 +75,12 @@ function paintCart() {
     shoppingBag.forEach((item, i) => {
       const cartItem = document.createElement('div');
       cartItem.classList.add('cart-item');
+      //multiplicador de cantidad de productos x el precio de cada uno
       cartItem.innerHTML = `
         <div class="cart-item-details">
         <img src="${item.image}" alt="${item.title}" class="cart-item-image" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
         <p>${item.title}</p></div>
-        <div class="cart-item-quantity">
+        <div class="cart-item-quantity"> 
         <input type="number" value="${item.quantity}" id="${item.id}" min="1" class="js-cart-quantity cart-quantity"></input>
         <p class="item-price">${item.price * item.quantity} €</p>
         <button class="btn-delete" id="${i}" style="font-size: 18px; font-weight: bold; background: none; border: none; cursor: pointer;">✖</button></div>
@@ -91,7 +92,7 @@ function paintCart() {
     totalValue.classList.add('js-total-value', 'total-value');
     const total = shoppingBag.reduce((acc, item) => acc + item.price * item.quantity, 0);
     totalValue.textContent = `Total: ${total} €`;
-    cartContainer.appendChild(totalValue);
+    cartContainer.appendChild(totalValue); // Añadir el total al carrito
   }
 }
 
