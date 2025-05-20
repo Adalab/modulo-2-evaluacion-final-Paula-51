@@ -1,17 +1,47 @@
-# modulo-2-evaluacion-final-Paula-51
+# 🛍️ Tienda Online - Amazon(AS)
 
-# Tienda online con JavaScript 
+Este es un proyecto de tienda online creado con **HTML**, **CSS** y **JavaScript**, que permite al usuario buscar productos, agregarlos a un carrito de compras, modificar cantidades y conservar el estado del carrito usando `localStorage`.
 
-# Contiene documento HTML con estructura basica de tienda online.
+## 🚀 Funcionalidades
 
-# información en carpeta src 
+- 🧠 **Búsqueda de productos** por nombre.
+- 🛒 **Añadir o eliminar productos del carrito.**
+- 🔢 **Modificar cantidad** de productos en el carrito.
+- 💾 **Persistencia del carrito** con `localStorage`.
+- 🧹 **Vaciar todo el carrito** con un botón.
+- 💸 **Cálculo automático del total** de la compra.
 
-# tecnología mode, para levantar la aplicación abrir terminal y ejecutar lso comandos npm run build, npm run dev
+## 📦 Estructura del Proyecto
 
-# maquetación con carpeta de CSS y documento main.css con estilos generales de toda la web
+tienda-online/
+│
+├── index.html # Estructura principal de la app
+├── js/
+│ └── main.js # Lógica de la tienda y el carrito
+├── assets/
+│ └── main-db835a59.css # Estilos de la tienda
+└── README.md # Este archivo## 🔗 API de Productos
 
-# funcionalidad JavaScript en un solo documento main.js
+Los productos se cargan desde una API externa de Adalab:
 
-# la información de saca de la api con url: 
-'https://raw.githubusercontent.com/Adalab/resources/master/apis/products.json'
+https://raw.githubusercontent.com/Adalab/resources/master/apis/products.json
+
+# 📚 Tecnologías usadas
+
+- HTML5
+- CSS3 (con fuentes de Google Fonts)
+- JavaScript ES6+
+- Fetch API
+- DOM Manipulation
+- Local Storage
+
+## 🧪 Cómo usar
+
+1. Clona o descarga este repositorio.
+2. Abre `index.html` en tu navegador.
+3. Interactúa con la tienda: busca productos, añade al carrito, cambia cantidades y vacía el carrito.
+
+---
+
+Este proyecto es parte de un ejercicio de aprendizaje en desarrollo web.
 
