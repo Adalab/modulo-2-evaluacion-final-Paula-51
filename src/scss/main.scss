@@ -25,17 +25,19 @@
   }
   
   header {
+    background-image: url('./public/fondo_rosa.jpeg');
+    background-size: cover;
+    background-position: center;
     text-align: center;
     margin-bottom: 40px;
-    background-color: rgb(237, 95, 152);
     padding-block: 90px;
     border-radius: 50px;
-    
   }
   
   .titulo {
     font-weight: bold;
-    font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+    font-family: 'Onest', sans-serif;
+    font-size: 3rem;
     font-size: 2.5rem;
     margin-bottom: 20px;
     color:#faeff6;
@@ -136,7 +138,7 @@
 .btn-vaciar-carrito {
   font-size: 1rem;
   font-weight: bold;
-  font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+  font-family: 'Onest', sans-serif;
   background-color: #ff5c7d;
   color: white;
   border: none;
@@ -306,7 +308,9 @@
     border-radius: 25px;
     font-size: 1rem;
     font-weight: bold;
-    font-family: 'Comic Sans MS', 'Segoe UI', cursive;
+    font-family: 'Onest', sans-serif;
+    text-align: center;
+    text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -325,6 +329,14 @@
     background-color: #FF4D6D; /* rosa coral fuerte */
     transform: scale(1.05);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  .total-value{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FF6F61; /* coral vivo */
+    margin-top: 20px;
+    text-align: center;
   }
   
 

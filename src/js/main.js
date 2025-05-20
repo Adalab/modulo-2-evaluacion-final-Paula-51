@@ -91,8 +91,8 @@ function paintCart() {
     const totalValue = document.createElement('p');
     totalValue.classList.add('js-total-value', 'total-value');
     const total = shoppingBag.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    totalValue.textContent = `Total: ${total} €`;
-    cartContainer.appendChild(totalValue); // Añadir el total al carrito
+    totalValue.textContent = `Total: ${total.toFixed(2)} €`;
+    cartContainer.appendChild(totalValue); // Añadir el precio total al carrito
   }
 }
 
