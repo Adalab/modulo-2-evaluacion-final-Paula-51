@@ -1,1 +1,17 @@
 # modulo-2-evaluacion-final-Paula-51
+
+# Tienda online con JavaScript 
+
+# Contiene documento HTML con estructura basica de tienda online.
+
+# información en carpeta src 
+
+# tecnología mode, para levantar la aplicación abrir terminal y ejecutar lso comandos npm run build, npm run dev
+
+# maquetación con carpeta de CSS y documento main.css con estilos generales de toda la web
+
+# funcionalidad JavaScript en un solo documento main.js
+
+# la información de saca de la api con url: 
+'https://raw.githubusercontent.com/Adalab/resources/master/apis/products.json'
+
